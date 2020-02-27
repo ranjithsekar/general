@@ -14,9 +14,22 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
     <spring.version>5.0.7.RELEASE</spring.version>
+    <junit.version>4.12</junit.version>
+    <derby.version>10.12.1.1</derby.version>
+    <hsql.version>2.3.2</hsql.version>
+    <h2db.version>1.4.190</h2db.version>
   </properties>
 
   <dependencies>
+    <!-- Junit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Spring Framework -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
@@ -34,15 +47,29 @@
       <version>1.18.12</version>
       <scope>provided</scope>
     </dependency>
-	
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
 
+    <!-- DERBY DB -->
+    <dependency>
+      <groupId>org.apache.derby</groupId>
+      <artifactId>derby</artifactId>
+      <version>${derby.version}</version>
+    </dependency>
+
+    <!-- HSQL DB -->
+    <dependency>
+      <groupId>org.hsqldb</groupId>
+      <artifactId>hsqldb</artifactId>
+      <version>${hsql.version}</version>
+    </dependency>
+
+    <!-- H2 DB -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>${h2db.version}</version>
+    </dependency>
+
+  </dependencies>
   <build>
     <finalName>your-project-name</finalName>
     <plugins>
