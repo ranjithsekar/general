@@ -1,3 +1,4 @@
+package jbr;
 
 
 import lombok.AllArgsConstructor;

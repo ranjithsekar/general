@@ -1,3 +1,4 @@
+package jbr;
 
 
 import java.io.IOException;
@@ -40,7 +41,7 @@ public class ProductUtil {
   public static void generateInsertScript() throws IOException {
     List<String> insert = Files.readAllLines(Paths.get("product-simple1/products.data")).stream().map(line -> {
       String val = "'" + String.join("','", Arrays.asList(line.split("\\|"))) + "'";
-      return "INSERT INTO product VALUES(" + val + ")";
+      return "INSERT INTO product VALUES(" + val + ");";
     }).collect(Collectors.toList());
     Files.write(Paths.get("product-simple1/products-insert.sql"), insert);
   }
