@@ -1,6 +1,5 @@
 package jbr;
 
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -17,13 +16,12 @@ public class ProductUtil {
 
   public static List<Product> generateProductObjectList() throws IOException {
 
-    String objects = Files.readAllLines(Paths.get("product-simple1/products.data")).stream().map(line -> {
-      String val = "\"" + String.join("\",\"", Arrays.asList(line.split("\\|"))) + "\"";
-      return "new Product(" + val + ")";
-    }).collect(Collectors.joining(","));
-    System.out.println(objects);
+    List<Product> objects = Files.readAllLines(Paths.get("product-simple1/products.data")).stream().map(line -> {
+      String[] val = line.split("\\|");
+      return new Product(val[0], val[1], val[2], val[3], val[4]);
+    }).collect(Collectors.toList());
+    System.out.println(objects.stream().map(e -> e.getId()).collect(Collectors.joining(",")));
 
-    // copy paste output
     List<Product> products = Arrays.asList(new Product("101", "Samsung J7", "Mobile", "Samsung smart phone", "7000"),
         new Product("102", "Realme J10", "Mobile", "Redmi smart phone", "9000"),
         new Product("201", "Acer T43", "Laptop", "Acer gaming laptop", "41000"),
